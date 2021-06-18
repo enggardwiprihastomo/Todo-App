@@ -1,0 +1,241 @@
+input[type="text"],
+input[type="radio"],
+input[type="checkbox"]{
+    margin-top: 1rem;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    background: $shadow;
+    color: $dark-gray;
+    border-radius: .5rem;
+    transition: background-color .25 ease;
+
+    &:focus{
+        background-color: rgba($gray, 0.4);
+    }
+}
+
+input[type="radio"]{
+    position: relative;
+    opacity: 0;
+
+    + label{
+        position: relative;
+    }
+
+    + label::before{
+        content: "";
+        position: absolute;
+        width:1.5rem;
+        height: 1.5rem;
+        border-radius: .75rem;
+        top: 0;
+        left: -2rem;
+        background: $shadow;
+        transition: background-color .25s ease;
+    }
+    
+    + label::after{
+        content: "";
+        position: absolute;
+        width:.7rem;
+        height: .7rem;
+        border-radius: .35rem;
+        top: .4rem;
+        left: -2rem + .35rem;
+        transition: background-color .25s ease;
+    }
+
+    &:checked + label::before{
+        background: $green;
+    }
+
+    &:checked + label::after{
+        background: $white;
+    }
+}
+
+input[type="checkbox"]:not(.switch){
+    opacity: 0;
+
+    + label{
+        position: relative;
+    }
+
+    + label::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -1.9rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: $shadow;
+        border-radius: .4rem;
+        transition: background-color .25s ease;
+    }
+
+    + label::after{
+        content: "";
+        position: absolute;
+        top: .2rem;
+        left: -2rem + .6rem;
+        transform: rotate(45deg);
+    }
+    
+    &:checked + label::before{
+        background: $green;
+    }
+    
+    &:checked + label::after{
+        width: .3rem;
+        height: .6rem;
+        border-right: .2rem solid $white;
+        border-bottom: .2rem solid $white;
+    }
+}
+
+.select{
+    position: relative;
+    user-select: none;
+    
+    > div:nth-child(1) {
+        background: $shadow;
+        display: flex;
+        align-items: center;
+        padding-right: .5rem;
+        min-width: 6rem;
+        cursor: pointer;
+        border-radius: .25rem;
+        
+        p{
+            padding: .5rem 1rem;
+            flex: 1;
+        }
+        
+        span > *{
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            fill: $gray;
+        }
+    }
+
+    > div{
+        width: 100%;
+    }
+
+    
+    &-inactive{
+        position: absolute;
+        display: none;
+    }
+    
+    &-active{
+        position: absolute;
+        display: block;
+        z-index: 1;
+    }
+    
+    .option{
+        width: 100%;
+        cursor: pointer;
+        padding: .5rem 1rem;
+        background: $shadow;
+        
+        &:hover{
+            background: $active-gray;
+        }
+        
+        &-active{
+            background: $active-gray;
+        }
+    }
+
+    &-night{
+        
+        p{
+            color: $white;
+        }
+
+        .option{
+            background: $dark-gray;
+    
+            &:hover{
+                background: #333333;
+            }
+    
+            &-active{
+                background: #333333;
+            }
+        }
+
+        > div:nth-child(1){
+            background: $dark-gray;
+
+            span > * {
+                fill: $white;
+            }
+        }
+    }
+
+}
+
+.switch{
+    opacity: 0;
+    position: absolute;
+    
+    + label{
+        position: relative;
+        cursor: pointer;
+    }
+    
+    + label::before{
+        content: "";
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        width: 4rem;
+        height: 1.4rem;
+        border-radius: .7rem;
+        background: $shadow;
+        transition: all .25s ease;
+        transition-delay: .25s;
+    }
+    
+    + label::after{
+        content: "";
+        position: absolute;
+        top: 0.4rem;
+        left: 0;
+        width: 2.6rem;
+        height: 2.6rem;
+        background-color: $white;
+        border-radius: 2.2rem;
+        transition: all .25s ease;
+        background-image: url("../public/ic-day.svg");
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &:checked + label::before{
+        background: $green;
+    }
+
+    &:checked + label::after{
+        background-image: url("../public/ic-night.svg");
+        left: 1.4rem;
+    }
+
+
+}

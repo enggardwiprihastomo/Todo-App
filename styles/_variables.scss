@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Nexa Bold";
+    src: url("../public/fonts/Nexa-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Nexa Light";
+    src: url("../public/fonts/Nexa-Light.otf") format("opentype");
+}
+
+$nexa-bold: "Nexa Bold";
+$nexa-light: "Nexa Light";
+
+$screen-type: ("mobile": 30rem, "tablet": 48rem);
+
+$dark-shadow: #111111;
+$shadow: #EEEEEE;
+$gray: #AAAAAA;
+$active-gray: #DDDDDD;
+$white: #FFFFFF;
+$dark-gray: #555555;
+$dark: #222222;
+$green: #92C218;
+$red: #F92A14

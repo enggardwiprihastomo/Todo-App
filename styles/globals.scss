@@ -1,0 +1,681 @@
+@import "./variables";
+@import "./fields";
+@import "./screen";
+
+%button-style{
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: .625rem;
+  font-family: $nexa-light;
+}
+
+* {
+  box-sizing: border-box;
+  color: $dark-gray;
+}
+
+main{
+  display: flex;
+  min-height: 100vh;
+}
+
+p{
+  padding: 0;
+  margin: 0;
+}
+
+.content-desktop,
+.content-tablet,
+.content-mobile{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.required{
+  color: $red;
+}
+
+.title{
+  margin-bottom: 2rem;
+  
+  &-night *{
+    color: $white;
+  }
+
+  p{
+    font-family: $nexa-bold;
+    color: $green;
+  }
+
+  h2{
+    display: ruby-base;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  h4{
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.switcher{
+  padding: 1rem;
+  min-height: 4rem;
+  display: flex;
+  justify-content: flex-end;
+
+  > div {
+    width: 4rem;
+  }
+  
+  &-not-desktop{
+    padding: 1rem;
+    min-height: 4rem;
+    display: flex;
+
+    .title{
+      margin: 0;
+    }
+
+    > div:nth-child(1){
+      display: flex;
+      flex: 1;
+    }
+
+    > div:nth-last-child(1){
+      width: 4rem;
+    }
+
+    &-night{
+      background: $dark;
+    }
+  }
+  
+  &-night{
+      background: $dark;
+  }
+}
+
+.sidebar{
+  width: 35rem;
+  height: 100vh;
+  background: $white;
+  box-shadow: .2rem 0 .8rem .2rem $shadow;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  z-index: 1;
+
+  @include screen("tablet"){
+      height: auto;
+      position: absolute;
+      left: .5rem;
+      top: 3rem;
+      border-radius: 1rem;
+      display: none;
+  }
+
+  @include screen("mobile"){
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+}
+
+  &-night{
+    background: $dark;
+    box-shadow: .2rem 0 .8rem .2rem $dark-shadow;
+  }
+  
+  .inputs{
+
+    &-night{
+      *:not(.required){
+        color: $white
+      }
+
+      input[type="text"]{
+        color: $dark-gray;
+        background: $white;
+        
+        &:focus{
+          background-color: $shadow;
+        }
+      }
+    }
+    
+
+    button{
+      @extend %button-style;
+      background: $green;
+      width: 100%;
+      padding: 1rem;
+      border-radius: .5rem;
+      color: $white;
+      font-family: $nexa-bold;
+
+      &:hover{
+        background: rgba($green, .8);
+      }
+    }
+
+    label{
+      user-select: none;
+      cursor: pointer;
+    }
+    
+     input:not(:nth-child(1)){
+      display: block;
+    }
+
+    > div{
+      margin: 2rem 0;
+
+      > p:nth-last-child(1){
+        padding-top: .25rem;
+        color: $red;
+      }
+    }
+
+    div > div{
+      display: inline-block;
+    }
+  
+    .radio{
+      > div:not(:nth-last-child(1)) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+}
+
+.content{
+  background: $white;
+  display: flex;
+  flex:1;
+  flex-direction: column;
+
+  &-night{
+    background: $dark;
+  }
+
+  .table{
+    display: flex;
+    font-size: 1.4rem;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0 2rem;
+
+    &-container{
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    
+    &-header{
+      display: flex;
+      flex: 1;
+      
+      > div {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        background: $green;
+        cursor: pointer;
+        transition: background-color .25s ease;
+        position: relative;
+        
+        &:not(:nth-last-child(1)){
+          flex: 1;
+          border-right: .1rem solid $white;
+          padding: 0 .5rem;
+        }
+        
+        &:nth-last-child(1){
+          width: 10rem;
+        }
+        
+        &:hover{
+          background: rgba($green, .8);
+        }
+      }
+
+        button{
+          @extend %button-style;
+          position: absolute;
+          width: 3rem;
+          background: none;
+        }
+
+        span{
+          color: $white;
+          flex:1;
+          user-select: none;
+          text-align: center;
+          font-family: $nexa-bold;
+        }
+      }
+      
+      &-body{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        &-todo{
+            text-decoration: line-through;
+        }
+        
+        &-night *{
+          color: $white;
+        }
+
+        input[type="checkbox"]{
+
+          + label {
+            position: relative;
+          }
+
+          + label::before{
+            background: rgba($gray, .4);
+            top: -.6rem;
+          }
+
+          + label::after{
+            top: -.4rem;
+          }
+
+          &:checked + label::before{
+            background: $green;
+          }
+        }
+
+        > div {
+          display: flex;
+          flex: 1;
+          position: relative;
+          justify-content: flex-end;
+          overflow: hidden;
+          height: 3.5rem;
+          
+          &:nth-child(even) > div{
+            background: $shadow;
+          }
+          
+          &:nth-child(odd) > div{
+            background: $white;
+          }
+          
+          &:hover > div{
+            transform: translateX(-8.1rem)
+          }
+          
+          > div{
+            display: flex;
+            user-select: none;
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: transform .25s ease;
+            
+            span{
+              display: flex;
+              height: 3.5rem;
+              align-items: center;
+              justify-content: center;
+              
+              &:not(:nth-last-child(1)){
+                flex: 1;
+                border-right: .1rem solid $white;
+                padding: 0 .5rem;
+              }
+
+              &:nth-last-child(1){
+                width: 10rem;
+              }
+            }
+          }
+
+        button{
+          @extend %button-style;
+          background: $red;
+          color: $white;
+          height: 3.5rem;
+          padding: 0 2rem;
+          transition: background-color .25s ease;
+
+          &:hover{
+            background: rgba($red, .8);
+          }
+        }
+      }
+    }
+
+    &-footer{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: .5rem;
+
+      > * {
+        margin: 0 .5rem;
+        font-size: 1.2rem;
+      }
+
+      button{
+        @extend %button-style;
+        background: none;
+        padding: .5rem;
+
+        &:disabled > *{
+          fill: $gray;
+        }
+
+        > * {
+          fill: $dark-gray;
+        }
+      }
+
+      p > b{
+        font-family: $nexa-bold;
+      }
+
+      &-night{
+        background: #333333;
+
+        button{
+          > * {
+            fill: $white;
+          }
+
+          &:disabled > *{
+            fill: $dark-gray;
+          }
+        }
+
+        p,
+        p > b{
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.no-data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+
+  &-night,
+  &-night p{
+    background: $dark;
+    color: $white;
+  }
+  
+  img{
+    height: 20rem;
+    width: 20rem;
+    margin-bottom: 2.5rem;
+
+    @include screen("mobile"){
+      height: 18rem;
+      width: 18rem;
+    }
+  }
+
+  > p {
+    font-size: 1.6rem;
+    text-align: center;
+
+    button{
+      @extend %button-style;
+      font-size: 1.6rem;
+      padding: 0;
+      background: none;
+      font-family: $nexa-bold;
+      color: $green;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+.container-tablet{
+  flex-direction: column;
+
+  &-menu{
+    position: relative;
+    display: flex;
+    flex: 1;
+    
+    &-night{
+      background: $dark;
+    }
+
+    button{
+      @extend %button-style;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > * {
+        fill: $green;
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+    }
+  }
+}
+
+.container-mobile{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+
+  &-night{
+    background: $dark;
+  }
+
+  > button{
+    @extend %button-style;
+    background: $green;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 2rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    transition: background-color .25s ease;
+
+    &:hover{
+      background: rgba($green, .8);
+    }
+
+    > * {
+      height: 2rem;
+      width: 2rem;
+      fill: $white
+    }
+  }
+  
+  .content-mobile{
+    padding: .5rem 2rem;
+    font-size: 1.2rem;
+
+    > span {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      
+      p{
+        padding: .5rem 2rem;
+        box-shadow: 0 0 .2rem .2rem $shadow;
+        border-radius: 2rem;
+      }
+
+      b{
+        font-family: $nexa-bold;
+      }
+    }
+
+    .mobile-list-wrapper{
+      margin: 1rem 0;
+      height: calc(100vh - 18rem);
+      overflow: auto;
+      scrollbar-width: none;
+
+        > div:nth-child(1){
+          margin-top: 1rem;
+          margin-bottom: .5rem;
+        }
+
+        > div:nth-last-child(1){
+          margin-top: .5rem;
+          margin-bottom: 1rem;
+        }
+
+        > div:not(:nth-child(1), :nth-last-child(1)){
+          margin: .5rem 0;
+        }
+
+        > div {
+          width: 100%;
+          border-radius: 1rem;
+          box-shadow: 0 0 .2rem .2rem $shadow;
+          background: $white;
+          overflow: hidden;
+          position: relative;
+
+          button{
+            @extend %button-style;
+            background:$green;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 4rem;
+            width: 4rem;
+            border-radius: 4rem 0 0;
+            transition: background-color .25s ease;
+
+            &:hover{
+              background: rgba($green,.8);
+            }
+
+            > * {
+              fill: $white;
+              position: absolute;
+              bottom: 1rem;
+              right: 1rem;
+              height: 1.2rem;
+              width: 1.2rem;
+            }
+          }
+
+          label{
+            font-family: $nexa-bold;
+          }
+
+          span{
+            display: block;
+            padding: 1rem;
+
+            input[type="checkbox"]{
+
+              + label {
+                position: relative;
+              }
+    
+              + label::before{
+                background: rgba($gray, .4);
+              }
+    
+              &:checked + label::before{
+                background: $green;
+              }
+            }
+
+            &:nth-child(1){
+              padding: 0  0 1rem 1rem;
+              border-bottom: .1rem solid $shadow;
+            }
+
+            &:nth-last-child(2){
+              padding: 0  0 1rem 1rem;
+            }
+
+            p{
+              display: inline-block;
+              
+              &:nth-child(1){
+                min-width: 8rem;
+              }
+            }
+          }
+        }
+    }
+
+    .sort-mobile{
+      display: flex;
+      align-items: center;
+
+      p{
+        margin-right: 1rem;
+      }
+
+      .select{
+        flex: 1;
+      }
+    }
+
+    &-night{
+      background: $dark;
+
+      >span{
+        p{
+          box-shadow: .2rem 0 .8rem .2rem $dark-shadow;
+        }
+      }
+
+      p, b {
+        color: $white;
+      }
+
+      label{
+        color: $white;
+      }
+
+      .mobile-list-wrapper{
+        > div {
+          background: $dark;
+          box-shadow: .2rem 0 .8rem .2rem $dark-shadow;
+        }
+      }
+    }
+  }
+}
