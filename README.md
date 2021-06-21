@@ -1,6 +1,6 @@
 # Todo App
 Simple todo list application made with Next.js
-<p align="center">
+<p>
   <img src="https://github.com/enggardwiprihastomo/todo-app/blob/main/snap.png" width="50%"/>
 </p>
 
