@@ -1,6 +1,8 @@
 # Todo App
 Simple todo list application made with Next.js
-<img scr="https://github.com/enggardwiprihastomo/todo-app/blob/main/snap.png" height=100 width=100 />
+<p align="center">
+  <img src="https://github.com/enggardwiprihastomo/todo-app/blob/main/snap.png" width="50%"/>
+</p>
 
 ## Prerequisite
 Install package dependencies with `npm install` or `yarn install`
