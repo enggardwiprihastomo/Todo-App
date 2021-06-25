@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaSortAmountDownAlt, FaSortAmountUpAlt, FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
-import { Todo } from "..";
-import { priorities, setClass } from "../../shared"
+import { Todo } from "../pages";
+import { priorities, setClass } from "../shared"
 import Select from "./select";
 
 interface ISort {

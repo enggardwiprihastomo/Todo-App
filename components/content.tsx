@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { setClass } from "../../shared"
-import { Todo } from "../index"
+import { setClass } from "../shared"
+import { Todo } from "../pages/index"
 import Table from "./table"
 
 function Content() {

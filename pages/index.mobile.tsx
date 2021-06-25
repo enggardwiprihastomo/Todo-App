@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { Todo } from ".";
 import { priorities, setClass } from "../shared";
-import NoData from "./components/noData";
-import Select from "./components/select";
-import Sidebar from "./components/sidebar";
-import Switch from "./components/switch";
+import NoData from "../components/noData";
+import Select from "../components/select";
+import Sidebar from "../components/sidebar";
+import Switch from "../components/switch";
 
 function Mobile() {
     const { todos, mode, deleteTodo, updateTodo, refName } = useContext(Todo)

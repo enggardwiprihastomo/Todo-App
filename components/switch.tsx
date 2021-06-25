@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Todo } from ".."
+import { Todo } from "../pages"
 
 function Switch() {
     const { mode, changeMode } = useContext(Todo)

@@ -1,9 +1,9 @@
-import Sidebar from "./components/sidebar";
-import Content from "./components/content";
+import Sidebar from "../components/sidebar";
+import Content from "../components/content";
 import { useContext } from "react";
-import NoData from "./components/noData";
+import NoData from "../components/noData";
 import { Todo } from ".";
-import Switch from "./components/switch";
+import Switch from "../components/switch";
 import { setClass } from "../shared";
 
 function Desktop() {

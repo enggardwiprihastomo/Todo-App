@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useRef, useState } from "react";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
-import { Todo } from "..";
-import { setClass } from "../../shared";
+import { Todo } from "../pages";
+import { setClass } from "../shared";
 
 interface IProps {
     options: number[] | string[]
