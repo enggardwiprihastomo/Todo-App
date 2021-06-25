@@ -1,9 +1,10 @@
-import { MouseEvent, useContext, useState } from "react"
-import { priorities, setClass } from "../../shared"
-import { Todo } from "../index"
+import { useContext, useState } from "react"
+import { priorities, setClass } from "../shared"
+import { Todo } from "../pages/index"
 import Radio from "./radio"
 
 function Sidebar({ style }: any) {
+
     const { mode, saveTodo, refName } = useContext(Todo)
     const [name, setName] = useState<string>("")
     const [priority, setPriority] = useState<number>(1)

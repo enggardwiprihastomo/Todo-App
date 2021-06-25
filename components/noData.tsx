@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { Todo } from ".."
-import { setClass } from "../../shared"
+import { Todo } from "../pages"
+import { setClass } from "../shared"
 
 function NoData() {
     const { refName, mode } = useContext(Todo)

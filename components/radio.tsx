@@ -1,4 +1,4 @@
-import { priorities } from "../../shared"
+import { priorities } from "../shared"
 
 interface IProps {
     name: string

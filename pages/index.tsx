@@ -1,5 +1,4 @@
-import { MutableRefObject, useRef } from "react";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useRef } from "react";
 
 import Desktop from "./index.desktop";
 import Mobile from "./index.mobile";
@@ -12,7 +11,7 @@ export interface ITodo {
   status: boolean
 }
 
-interface ContextType {
+interface IContext {
   mode: boolean
   todos: ITodo[]
   saveTodo: (todo: ITodo) => void
@@ -22,10 +21,10 @@ interface ContextType {
   refName: any
 }
 
-const Todo = createContext<ContextType | null>(null)
+const Todo = createContext<IContext | null>(null)
 
 function App() {
-  const [windowWidth, setWindowWidth] = useState(0)
+  const [windowWidth, setWindowWidth] = useState<number>(null)
   const [mode, setMode] = useState<boolean>(false)
   const [todos, setTodos] = useState<ITodo[]>([])
   const refName = useRef<HTMLInputElement>(null)

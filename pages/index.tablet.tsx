@@ -1,10 +1,10 @@
 import { useContext } from "react"
 import { FaTh } from "react-icons/fa";
 import { Todo } from "."
-import Sidebar from "./components/sidebar";
-import Content from "./components/content";
-import NoData from "./components/noData";
-import Switch from "./components/switch";
+import Sidebar from "../components/sidebar";
+import Content from "../components/content";
+import NoData from "../components/noData";
+import Switch from "../components/switch";
 import { useState } from "react";
 import { setClass } from "../shared";
 
