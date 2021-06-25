@@ -1,5 +1,5 @@
 # Todo App
-Simple todo list application made with Typescript and Next.js
+Responsive simple todo list application made with Typescript and Next.js
 <p>
   <img src="https://github.com/enggardwiprihastomo/todo-app/blob/main/snap.png" width="50%"/>
 </p>
