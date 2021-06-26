@@ -1,6 +1,6 @@
 # Todo App
 Simple todo list application with responsive design made with Typescript and Next.js
-![Todo app](https://github.com/enggardwiprihastomo/todo-app/blob/main/snap.png)
+![Todo app](https://github.com/enggardwiprihastomo/Todo-App/blob/main/snap.png)
 
 ## Prerequisite
 Install package dependencies with `npm install` or `yarn install`
